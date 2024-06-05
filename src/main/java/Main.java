@@ -16,6 +16,9 @@ import java.io.IOException;
 class WrongStudentName extends Exception { }
 class WrongAge extends Exception { }
 class WrongDateOfBirth extends Exception { }
+class WrongDayBirth extends Exception { }
+class WrongMonthBirth extends Exception { }
+class WrongYearBirth extends Exception { }
 class Main {
     public static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
@@ -35,6 +38,12 @@ class Main {
                 System.out.println("Błędny wiek studenta!");
             } catch(WrongDateOfBirth e) {
                 System.out.println("Błędna data urodzenia studenta!");
+            } catch(WrongDayBirth e) {
+                System.out.println("Błędny dzień urodzenia studenta!");
+            } catch(WrongMonthBirth e) {
+                System.out.println("Błędny miesiąc urodzenia studenta!");
+            } catch(WrongYearBirth e) {
+                System.out.println("Błędny rok urodzenia studenta!");
             }
         }
     }
@@ -62,14 +71,24 @@ class Main {
         scan.nextLine();
         return age;
     }
-    public static String ReadDateOfBirth() throws WrongDateOfBirth {
+    public static String ReadDateOfBirth() throws WrongDateOfBirth, WrongDayBirth, WrongMonthBirth, WrongYearBirth {
         System.out.println("Podaj datę urodzenia DD-MM-YYYY");
         var date = scan.nextLine();
         if(!date.matches("\\d{2}-\\d{2}-\\d{4}"))
             throw new WrongDateOfBirth();
+        String[] parts = date.split("-");
+        int day = Integer.parseInt(parts[0]);
+        int month = Integer.parseInt(parts[1]);
+        int year = Integer.parseInt(parts[2]);
+        if(day < 1 || day > 31)
+            throw new WrongDayBirth();
+        if(month < 1 || month > 12)
+            throw new WrongMonthBirth();
+        if(year < 1900 || year > 2024)
+            throw new WrongYearBirth();
         return date;
     }
-    public static void exercise1() throws IOException, WrongStudentName, WrongAge, WrongDateOfBirth {
+    public static void exercise1() throws IOException, WrongStudentName, WrongAge, WrongDateOfBirth, WrongDayBirth, WrongMonthBirth, WrongYearBirth {
         var name = ReadName();
         var age = ReadAge();
         var date = ReadDateOfBirth();
