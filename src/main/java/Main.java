@@ -44,7 +44,7 @@ class Main {
             } catch(WrongMonthBirth e) {
                 System.out.println("Błędny miesiąc urodzenia studenta!");
             } catch(WrongYearBirth e) {
-                System.out.println("Błędny rok urodzenia studenta!");
+                System.out.println("Błędny rokk urodzenia studenta!");
             } catch(WrongMenuChoice e) {
                 System.out.println("Niepoprawny wybór! Spróbuj ponownie.");
             }
