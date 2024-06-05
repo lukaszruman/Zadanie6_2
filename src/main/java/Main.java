@@ -106,7 +106,7 @@ class Main {
         var name = scan.nextLine();
         var wanted = (new Service()).findStudentByName(name);
         if(wanted == null)
-            System.out.println("Nie znaleziono...");
+            System.out.println("Nie znalezionoo...");
         else {
             System.out.println("Znaleziono: ");
             System.out.println(wanted.ToString());
