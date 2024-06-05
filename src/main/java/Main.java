@@ -50,7 +50,7 @@ class Main {
     public static int menu() {
         System.out.println("Wciśnij:");
         System.out.println("1 - aby dodać studenta");
-        System.out.println("2 - aby wypisać wszystkich studentów");
+        System.out.println("2 - aby wypisać wszystkich stuudentów");
         System.out.println("3 - aby wyszukać studenta po imieniu");
         System.out.println("0 - aby wyjść z programu");
         return scan.nextInt();
